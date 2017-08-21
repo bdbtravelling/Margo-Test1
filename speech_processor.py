@@ -37,11 +37,16 @@ def check_for_speech():
     return listentexttokens
 
 def margo_greeting():
-    """thetime = str(datetime.now().time())"""
     hour = time.strftime("%H")
     print (hour)
-    """print (thetime)"""
-    speak_response("Hi!  How can I help?")
+    if hour == "18" or "19" or "20" or "21" or "22" or "23":
+        speak_response("Good evening!  How can I help?")
+    elif hour == "6" or "7" or "8" or "9" or "10":
+        speak_response("Good morning!  How can I help?")
+    elif hour == "12" or "13" or "14" or "15" or "16" or "17":
+        speak_response("Good afternoon!  How can I help?")
+    else:
+        speak_response("Hi!  How can I help?")
     return
 
 def speak_response(inputspeech):
